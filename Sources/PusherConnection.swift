@@ -418,7 +418,7 @@ import CryptoSwift
         Schedule a timer to be fired if no activity occurs over the socket within
         the activityTimeoutInterval
     */
-    fileprivate func establishActivityTimeoutTimer() {
+    @objc fileprivate func establishActivityTimeoutTimer() {
         self.activityTimeoutTimer = Timer.scheduledTimer(
             timeInterval: self.activityTimeoutInterval,
             target: self,
@@ -431,7 +431,7 @@ import CryptoSwift
     /**
         Send a ping to the server
     */
-    fileprivate func sendPing() {
+    @objc fileprivate func sendPing() {
         socket.write(ping: Data()) {
             self.delegate?.debugLog?(message: "[PUSHER DEBUG] Ping sent")
             self.setupPongResponseTimeoutTimer()
@@ -442,7 +442,7 @@ import CryptoSwift
         Schedule a timer that will fire if no pong response is received within the
         pongResponseTImeoutInterval
     */
-    fileprivate func setupPongResponseTimeoutTimer() {
+    @objc fileprivate func setupPongResponseTimeoutTimer() {
         pongResponseTimeoutTimer = Timer.scheduledTimer(
             timeInterval: pongResponseTimeoutInterval,
             target: self,
@@ -456,7 +456,7 @@ import CryptoSwift
         Invalidate the pongResponseTimeoutTimer and set connection state to disconnected
         as well as marking channels as unsubscribed
     */
-    fileprivate func cleanupAfterNoPongResponse() {
+    @objc fileprivate func cleanupAfterNoPongResponse() {
         pongResponseTimeoutTimer?.invalidate()
         pongResponseTimeoutTimer = nil
         resetConnectionAndAttemptReconnect()
@@ -468,7 +468,7 @@ import CryptoSwift
 
         - parameter json: The PusherEventJSON containing successful subscription data
     */
-    fileprivate func handleSubscriptionSucceededEvent(event: PusherEvent) {
+  @objc fileprivate func handleSubscriptionSucceededEvent(event: PusherEvent) {
         if let channelName = event.channelName, let chan = self.channels.find(name: channelName) {
             chan.subscribed = true
 
