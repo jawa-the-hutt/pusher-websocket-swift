@@ -1,7 +1,7 @@
 import Foundation
 
 @objcMembers
-@objc open class GlobalChannel: PusherChannel {
+@objc(GlobalChannel) open class GlobalChannel: PusherChannel {
     open var globalCallbacks: [String: (PusherEvent) -> Void] = [:]
     open var globalLegacyCallbacks: [String: (Any?) -> Void] = [:]
 

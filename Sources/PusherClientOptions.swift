@@ -21,7 +21,7 @@ public enum AuthMethod {
 }
 
 @objcMembers
-@objc public class PusherClientOptions: NSObject {
+@objc(PusherClientOptions) public class PusherClientOptions: NSObject {
     public var authMethod: AuthMethod
     public let attemptToReturnJSONObject: Bool
     public let autoReconnect: Bool

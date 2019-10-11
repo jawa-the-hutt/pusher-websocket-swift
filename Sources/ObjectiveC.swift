@@ -5,7 +5,7 @@ import Foundation
         return self.subscribe(channelName, onMemberAdded: nil, onMemberRemoved: nil)
     }
 
-    func subscribe(
+    @objc func subscribe(
         channelName: String,
         onMemberAdded: ((PusherPresenceChannelMember) -> ())? = nil,
         onMemberRemoved: ((PusherPresenceChannelMember) -> ())? = nil

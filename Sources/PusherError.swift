@@ -1,7 +1,7 @@
 import Foundation
 
 @objcMembers
-open class PusherError: NSObject {
+@objc(PusherError) open class PusherError: NSObject {
 
     // Code is optional, message is not: https://pusher.com/docs/channels/library_auth_reference/pusher-websockets-protocol#-pusher-error-channels-client-
     /// The error code.

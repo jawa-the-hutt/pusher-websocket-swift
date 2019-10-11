@@ -1,7 +1,7 @@
 import Foundation
 
 @objcMembers
-open class PusherEvent: NSObject, NSCopying {
+@objc(PusherEvent) open class PusherEvent: NSObject, NSCopying {
     /// The JSON object received from the websocket
     @nonobjc internal let raw: [String: Any]
 

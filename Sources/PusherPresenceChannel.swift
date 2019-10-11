@@ -3,7 +3,7 @@ import Foundation
 public typealias PusherUserInfoObject = [String: AnyObject]
 
 @objcMembers
-@objc open class PusherPresenceChannel: PusherChannel {
+@objc(PusherPresenceChannel) open class PusherPresenceChannel: PusherChannel {
     open var members: [PusherPresenceChannelMember]
     open var onMemberAdded: ((PusherPresenceChannelMember) -> ())?
     open var onMemberRemoved: ((PusherPresenceChannelMember) -> ())?
@@ -170,7 +170,7 @@ public typealias PusherUserInfoObject = [String: AnyObject]
 }
 
 @objcMembers
-@objc public class PusherPresenceChannelMember: NSObject {
+@objc(PusherPresenceChannelMember) public class PusherPresenceChannelMember: NSObject {
     public let userId: String
     public let userInfo: Any?
 

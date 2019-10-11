@@ -1,7 +1,7 @@
 import Foundation
 
 @objcMembers
-@objc open class PusherChannels: NSObject {
+@objc(PusherChannels) open class PusherChannels: NSObject {
     open var channels = [String: PusherChannel]()
 
     /**

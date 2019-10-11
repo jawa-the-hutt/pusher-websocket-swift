@@ -4,7 +4,7 @@ import Starscream
 import CryptoSwift
 
 @objcMembers
-@objc open class PusherConnection: NSObject {
+@objc(PusherConnection) open class PusherConnection: NSObject {
     public let url: String
     public let key: String
     open var options: PusherClientOptions
@@ -130,7 +130,7 @@ import CryptoSwift
 
         - returns: A new PusherChannel instance
     */
-    @objc internal func subscribe(
+    internal func subscribe(
         channelName: String,
         auth: PusherAuth? = nil,
         onMemberAdded: ((PusherPresenceChannelMember) -> ())? = nil,
@@ -166,7 +166,7 @@ import CryptoSwift
 
         - returns: A new PusherChannel instance
     */
-    @objc internal func subscribeToPresenceChannel(
+    internal func subscribeToPresenceChannel(
         channelName: String,
         auth: PusherAuth? = nil,
         onMemberAdded: ((PusherPresenceChannelMember) -> ())? = nil,
@@ -288,7 +288,7 @@ import CryptoSwift
     /**
         Establish a websocket connection
     */
-    @objc open func connect() {
+    open func connect() {
         // reset the intentional disconnect state
         intentionalDisconnect = false
 
@@ -431,7 +431,7 @@ import CryptoSwift
     /**
         Send a ping to the server
     */
-    @objc fileprivate func sendPing() {
+    fileprivate func sendPing() {
         socket.write(ping: Data()) {
             self.delegate?.debugLog?(message: "[PUSHER DEBUG] Ping sent")
             self.setupPongResponseTimeoutTimer()
@@ -456,7 +456,7 @@ import CryptoSwift
         Invalidate the pongResponseTimeoutTimer and set connection state to disconnected
         as well as marking channels as unsubscribed
     */
-    @objc fileprivate func cleanupAfterNoPongResponse() {
+    fileprivate func cleanupAfterNoPongResponse() {
         pongResponseTimeoutTimer?.invalidate()
         pongResponseTimeoutTimer = nil
         resetConnectionAndAttemptReconnect()
@@ -907,7 +907,7 @@ import CryptoSwift
     }
 }
 
-@objc public class PusherAuth: NSObject {
+@objc(PusherAuth) public class PusherAuth: NSObject {
     public let auth: String
     public let channelData: String?
 
@@ -917,7 +917,7 @@ import CryptoSwift
     }
 }
 
-@objc public enum ConnectionState: Int {
+@objc(ConnectionState) public enum ConnectionState: Int {
     case connecting
     case connected
     case disconnecting
