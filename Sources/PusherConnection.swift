@@ -130,7 +130,7 @@ import CryptoSwift
 
         - returns: A new PusherChannel instance
     */
-    internal func subscribe(
+    @objc internal func subscribe(
         channelName: String,
         auth: PusherAuth? = nil,
         onMemberAdded: ((PusherPresenceChannelMember) -> ())? = nil,
@@ -166,7 +166,7 @@ import CryptoSwift
 
         - returns: A new PusherChannel instance
     */
-    internal func subscribeToPresenceChannel(
+    @objc internal func subscribeToPresenceChannel(
         channelName: String,
         auth: PusherAuth? = nil,
         onMemberAdded: ((PusherPresenceChannelMember) -> ())? = nil,
@@ -204,7 +204,7 @@ import CryptoSwift
             self.channels.remove(name: channelName)
         }
     }
-    
+
     /**
         Unsubscribes from all PusherChannels
     */
